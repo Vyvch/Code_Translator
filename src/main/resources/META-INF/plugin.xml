@@ -1,0 +1,33 @@
+<idea-plugin>
+    <!-- Уникальный идентификатор плагина -->
+    <id>org.example.translate</id>
+
+    <!-- Название плагина, которое будет отображаться в списке плагинов -->
+    <name>Переводчик Выделенного Текста</name>
+
+    <!-- Автор плагина и контактный email -->
+    <vendor email="pivtsaev@niuitmo.ru">Vladislav Pivtsaev</vendor>
+
+    <!-- Определение действий, добавляемых плагином -->
+    <actions>
+        <!--
+            Основное действие плагина:
+            - Перевод выделенного текста через Google Translate
+            - Добавляется в контекстное меню редактора (ПКМ)
+            - Горячая клавиша: Ctrl + \ , затем Ctrl + T
+        -->
+        <action id="TranslateViaGoogleTranslateAction"
+                class="org.example.TranslateViaGoogleTranslateAction"
+                text="Перевести Выделенный Текст"
+                description="Переводит выделенный текст с помощью Google Переводчика">
+
+            <!-- Добавление действия в контекстное меню редактора -->
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+
+            <!-- Горячая клавиша для быстрого вызова действия -->
+            <keyboard-shortcut keymap="$default"
+                               first-keystroke="ctrl BACK_SLASH"
+                               second-keystroke="ctrl T"/>
+        </action>
+    </actions>
+</idea-plugin>
